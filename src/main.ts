@@ -5,7 +5,8 @@ import { envs } from './config';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const logger = new Logger('Orders-Main');
+  const logger = new Logger('OrdersMS-Main');
+
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
@@ -13,8 +14,8 @@ async function bootstrap() {
       transport: Transport.NATS,
       options: {
         servers: envs.natsServers
-      }
-    }
+      },
+    },
   );
 
   app.useGlobalPipes(
