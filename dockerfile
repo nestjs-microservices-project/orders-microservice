@@ -1,11 +1,11 @@
-FROM node:21-alpine3.19
+FROM node:23-alpine3.20
 
 WORKDIR /usr/src/app
 
 COPY package.json ./
-COPY yarn.lock ./
+COPY package-lock.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
